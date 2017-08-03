@@ -11,7 +11,7 @@ The boilerplate of react tech with using react, react-router, redux, webpack, ma
 `yarn run start:dev`
 
 # node api测试使用方式
-node版本需要>7.6
+node版本需要>7.6
 
 更新方式
 ```bash
