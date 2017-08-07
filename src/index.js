@@ -1,10 +1,10 @@
 //react router
-import { Router, browserHistory } from 'react-router';
-import { routes } from './router/routes.js';
+import {Router, browserHistory} from 'react-router';
+import {routes} from './router/routes.js';
 
 
 //redux
-import { Provider } from 'react-redux';
+import {Provider} from 'react-redux';
 import createStore from './redux/store/index';
 
 

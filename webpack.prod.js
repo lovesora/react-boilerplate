@@ -4,24 +4,27 @@ const webpack = require('webpack');
 //抽取css到单独的文件
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const paths = {
     context: path.resolve(__dirname, 'src'),
     output: {
-        path: path.resolve(__dirname, 'src/public'),
+        path: path.resolve(__dirname, 'src/dist'),
     }
 }
+const indexHtmlConfig = {
+    title: 'react-boilerplate',
+}
 
-var config = {
+let config = {
     // performance: {
     //     hints: false
     // },
     context: paths.context,
     entry: {
         //babel-polyfill是为了支持async/await语法
-        app: ['babel-polyfill', './index.js'],
-        react: ['react', 'react-dom', 'react-addons-css-transition-group', 'react-redux', 'react-router', 'redux', 'react-tap-event-plugin'],
-        mdui: ['material-ui']
+        app: ['whatwg-fetch', 'babel-polyfill', './index.js'],
+        react: ['react', 'react-dom', 'react-addons-css-transition-group', 'react-redux', 'react-router', 'redux', 'react-tap-event-plugin']
     },
     output: {
         path: paths.output.path,
@@ -51,25 +54,32 @@ var config = {
                 warnings: false
             }
         }),
+        new HtmlWebpackPlugin({
+            title: indexHtmlConfig.title,
+            template: 'index.ejs',
+            hash: true,
+            excludeChunks: ['react']
+        })
     ],
-    resolve: {
-        //当在css中@import css出错“can’t find ___”可以开启以下resolve
-        // modules: [paths.context, "node_modules"],
-
-        //为资源文件取别名，缩短引用的路径
-        alias: {
-            // react: path.resolve(paths.src, "vendor/react/react.min.js"),
-        }
-    },
     module: {
         rules: [{
+            // 模块必须在你的 bundle 中被 require() 过，否则他们将不会被暴露！！！
+        //     test: require.resolve('jquery'),
+        //     use: [{
+        //         loader: 'expose-loader',
+        //         options: '$'
+        //     }, {
+        //         loader: 'expose-loader',
+        //         options: 'jQuery'
+        //     }]
+        // }, {
             test: /\.js$/,
             use: [{
                 loader: "babel-loader",
                 options: {
                     presets: ["es2015", "stage-1", "stage-3", "react"],
                     plugins: [
-                    // es6默认使用严格模式，所以一些采用非严格模式的第三方库会报错，禁用严格模式：
+                        // es6默认使用严格模式，所以一些采用非严格模式的第三方库会报错，禁用严格模式：
                         ["transform-remove-strict-mode"]
                     ]
                 }
@@ -115,7 +125,7 @@ var config = {
             use: [{
                 loader: "url-loader",
                 options: {
-                    limit: 50000,
+                    limit: 20 * 1024,
                     name: "[path][name].[ext]"
                 }
             }]

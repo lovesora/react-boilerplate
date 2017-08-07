@@ -1,22 +1,27 @@
-import App from './app.js';
-import Home from './home.js';
-import Post from './post.js';
+import AppRoute from './app.route';
+import HomeRoute from './home.route';
+import PostRoute from './post.route';
 
-export const url = {
-    home: '/',
-    post: '/post'
+// 相对路径
+let RELATIVEPATH = '/x/y/';
+
+
+// 路由地址
+export const URL = {
+    HOME: RELATIVEPATH,
+    POST: RELATIVEPATH + 'post/'
 };
 
 
+// react-router路由列表
 export const routes = {
-    path: '/',
-    component: App,
+    path: URL.HOME,
+    component: AppRoute,
     indexRoute: {
-        component: Home
+        component: HomeRoute
     },
     childRoutes: [{
-            path: 'post/:name',
-            component: Post
-        }
-    ]
+        path: URL.POST + ':id',
+        component: PostRoute
+    }]
 };
