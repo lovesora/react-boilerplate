@@ -85,7 +85,7 @@ $ sudo n x.x.x
         |-yarn.lock             //yarn lock文件
       |-fetch                   //ajax请求文件夹
         |-xxx.fetch.js          //ajax请求文件
-      |-restful-api             //前端api访问配置
+      |-restful-api             //前端api访问配置
   |-.eslintrc                   //eslint配置文件
   |-.gitignore                  //git忽略配置文件
   |-LICENSE                     //开源协议
