@@ -47,6 +47,9 @@ export const AT_MODAL = {
     //错误信息弹出框
     POP: {
         TOGGLE: 'AT_MODAL_POP_TOGGLE'
+    },
+    LOADING: {
+        TOGGLE: 'AT_MODAL_LOADING_TOGGLE'
     }
 }
 

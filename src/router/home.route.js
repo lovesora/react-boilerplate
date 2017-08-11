@@ -12,6 +12,7 @@ import ModalCode from  '../components/modal/modal-code';
 import ModalShareEnd from '../components/modal/modal-share-end';
 import ModalShareAddNum from '../components/modal/modal-share-add-num';
 import ModalPop from '../components/modal/modal-pop';
+import ModalLoading from '../components/modal/modal-loading';
 
 
 class HomeRoute extends React.Component {
@@ -25,21 +26,21 @@ class HomeRoute extends React.Component {
                 justifyContent: 'center'
             }
         }
-        // <BottomIcons/>
-        // <ModalAward/>
-        // <ModalDesc/>
-        // <ModalCode/>
-        // <ModalShareEnd/>
-        // <ModalShareAddNum/>
-        // <ModalPop/>
         return <div style={ style.container }>
             <RotaryLottery/>
+            <BottomIcons/>
+            <ModalAward/>
+            <ModalDesc/>
+            <ModalCode/>
+            <ModalShareEnd/>
+            <ModalShareAddNum/>
+            <ModalPop/>
+            <ModalLoading/>
         </div>;
     }
 }
 
 let mapStateToProps = state => ({...state.home.imgUrls});
-
 
 let mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);
 

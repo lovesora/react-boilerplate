@@ -9,18 +9,19 @@ class AwardLottery extends React.Component {
             container: {
                 height: '6.75rem',
                 margin: '1rem 1rem 0 1rem',
-                display: 'flex'
+                backgroundColor: '#fff',
             },
             left:{
                 container: {
-                    width: '10rem',
+                    float: 'left',
+                    height: '100%',
+                    width: '8rem',
                     background: 'url(' + this.props.attr.uiType.one.leftBgUrl + ') no-repeat',
                     backgroundSize: '100% 100%',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    padding: '0 1rem'
+                    justifyContent: 'center'
                 },
                 title: {
                     fontSize: '3.5rem',
@@ -37,8 +38,8 @@ class AwardLottery extends React.Component {
             } ,
             right: {
                 container: {
-                    flexGrow: '1',
-                    margin: '0 .375rem', 
+                    margin: '0 .375rem 0 8rem', 
+                    height: '100%',
                     display: 'flex',
                     flexDirection: 'column'
                 },
@@ -49,11 +50,12 @@ class AwardLottery extends React.Component {
                     type: {
                         backgroundColor: '#f36209',
                         color: '#fff',
-                        padding: '0 .5rem',
-                        margin: '0 .5rem 0 0',
+                        display: 'inline-block',
+                        margin: '.5rem 0 0 .5rem',
                         borderRadius: '.2rem',
                         lineHeight: '1.6rem',
-                        fontSize: '1.5rem'
+                        fontSize: '1rem',
+                        padding: '.1rem .4rem'
                     },
                     content: {
                         color: '#717071',
@@ -81,27 +83,30 @@ class AwardLottery extends React.Component {
                 },
                 bottom: {
                     container: {
-                        display: 'flex',
                         alignItems: 'center',
-                        paddingTop: '.2rem'
+                        padding: '.2rem',
+                        display: 'table',
+                        width: '100%'
                     },
                     left: {
                         flexGrow: '1',
                         marginLeft: '.5rem',
                         color: '#9B9B9B',
-                        fontSize: '1rem',
-                        whiteSpace: 'nowrap',
-                        marginRight: '.5rem'
+                        fontSize: '.8rem',
+                        marginRight: '5.5rem',
+                        display: 'table-cell'
                     },
                     right: {
                         width: '5rem',
+                        fload: 'right',
                         border: '.1rem solid rgba(151, 151, 151, .5)',
                         borderRadius: '.2rem',
                         textAlign: 'center',
-                        marginRight: '.5rem',
                         color: '#9B9B9B',
                         lineHeight: '1.2rem',
-                        fontSize: '1rem'
+                        fontSize: '1rem',
+                        display: 'table-cell',
+                        'verticalAlign': 'middle'
                     }
                 }
             }

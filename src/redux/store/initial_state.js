@@ -1,6 +1,4 @@
-import {url} from '../../router/routes';
-
-// url.home = url.home + '/../..';
+import {img} from '../../assets/index';
 
 export default {
     appConfigs: {
@@ -46,20 +44,20 @@ export default {
             //背景图片url
             bg: '',
             //转盘url
-            rotary: url.home + 'assets/bg-turntable.png',
+            rotary: img.bg.turntable,
             //转盘指针url
-            pointer: url.home + 'assets/bg-lottery-button.png',
+            pointer: img.bg.lotteryButton,
             //底部左侧红包图片url
-            leftCoupon: url.home + 'assets/icon-left-coupon.png',
+            leftCoupon: img.icon.leftCoupon,
             //底部右侧红包图片url
-            rightCoupon: url.home + 'assets/icon-right-coupon.png'
+            rightCoupon: img.icon.rightCoupon,
         },
         //底部图标
         iconUrls: {
             //左侧帮助图标url
-            desc: url.home + 'assets/icon-button-lottery-help.png',
+            desc: img.icon.btnLotteryHelp,
             //右侧查看优惠券图标url
-            award: url.home + 'assets/icon-button-gift.png'
+            award: img.icon.btnGift,
         },
     },
     //用户抽奖需要用到的数据
@@ -71,7 +69,7 @@ export default {
         //是否中奖 true: 中奖 false: 没中奖
         isWinning: true,
         //结果图片url 中奖与未中奖共享字段
-        resultImg: url.home + 'assets/award-lottery-result.png',
+        resultImg: '',
         //中奖过后的显示的提示文本
         resultText: '恭喜你获得了',
         //奖品标题
@@ -90,9 +88,9 @@ export default {
             //是否中奖 true: 中奖 false: 没中奖
             isWinning: false,
             //结果图片url 中奖与未中奖共享字段
-            resultContainer: url.home + 'assets/modal-award-bg.jpeg',
-            resultImg: url.home + 'assets/award-lottery-result.png',
-            resultThanksImg: url.home + 'assets/award-lottery-result-thanks.png',
+            resultContainer: img.modal.awardBg,
+            resultImg: '',
+            resultThanksImg: img.award.resultThanks,
             //中奖过后的显示的提示文本
             resultText: '恭喜你获得了',
             //奖品标题
@@ -114,17 +112,17 @@ export default {
             //显示的提示文本
             text: '长按指纹 识别二维码',
             //二维码图片url
-            codeUrl: url.home + 'assets/img-code.png',
+            codeUrl: img.code.code,
             //提示长按识别二维码的图片url
-            codeHintUrl: url.home + 'assets/img-code-hint.png',
+            codeHintUrl: img.code.hint,
             //关闭页面的图片url
-            codeCloseUrl: url.home + 'assets/img-code-close.png'
+            codeCloseUrl: img.code.close,
         },
         //微信分享结束后不能通过分享再增加抽奖次数的提示界面
         shareEnd: {
             isOpen: false,
             //箭头图片url
-            arrowImgUrl: url.home + 'assets/modal-share-end.png',
+            arrowImgUrl: img.modal.shareEnd,
             //提示的文本
             text: `您的抽奖次数已达上限！
 点击“右上角”
@@ -135,7 +133,7 @@ export default {
         shareAddNum: {
             isOpen: false,
             //箭头图片url
-            arrowImgUrl: url.home + 'assets/modal-share-add-lottery.png',
+            arrowImgUrl: img.modal.addLottery,
             //提示的文本
             text: `再获得N次抽奖机会！`,
             //分享后会增加的抽奖次数
@@ -150,6 +148,9 @@ export default {
         pop: {
             isOpen: false,
             text: ''
+        },
+        loading: {
+            isOpen: true,
         }
     },
     //优惠券列表数据
@@ -163,16 +164,16 @@ export default {
             },
             uiType: {
                 one: {
-                    leftBgUrl: url.home + 'assets/bg-award-list-left.png',
-                    rightBgUrl: url.home + 'assets/bg-award-list-addon.png'
+                    leftBgUrl: img.awardList.one.leftBgUrl,
+                    rightBgUrl: img.awardList.one.rightBgUrl,
                 },
                 two: {
-                    leftBgUrl: url.home + 'assets/bg-award-list-left-1.png',
-                    rightBgUrl: url.home + 'assets/bg-award-list-addon-1.png'
+                    leftBgUrl: img.awardList.two.leftBgUrl,
+                    rightBgUrl: img.awardList.two.rightBgUrl,
                 },
                 three: {
-                    leftBgUrl: url.home + 'assets/bg-award-list-left-1.png',
-                    rightBgUrl: url.home + 'assets/bg-award-list-addon-2.png'
+                    leftBgUrl: img.awardList.three.leftBgUrl,
+                    rightBgUrl: img.awardList.three.rightBgUrl,
                 }
             }
         },

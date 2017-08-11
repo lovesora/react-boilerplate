@@ -205,6 +205,9 @@ class RotaryLotterView extends React.Component {
                 marginTop: '18rem',
                 position: 'relative'
             },
+            rotaryContainer: {
+                position: 'relative',
+            },
             bg: {
                 container: {
                     display: 'flex',
@@ -217,27 +220,30 @@ class RotaryLotterView extends React.Component {
                     animationFillMode: 'forwards'
                 },
                 rotary: {
-                    width: '280px',
-                    height: '280px'
+                    width: '28rem',
+                    height: '28rem'
                 },
                 pointer: {
+                    width: '8rem',
+                    height: '10rem',
                     cursor: 'pointer',
                     position: 'absolute',
                     left: '50%',
-                    top: '78px',
-                    marginLeft: '-40px'
+                    top: '50%',
+                    marginLeft: '-4rem',
+                    marginTop: '-6rem'
                 }, 
             },
             award: {
                 container: {
-                    width: '50px',
-                    height: '60px',
+                    width: '5rem',
+                    height: '6rem',
                     position: 'absolute',
                     right: '50%',
-                    marginRight: '-25px',
-                    top: '30px',
+                    marginRight: '-2.5rem',
+                    top: '3rem',
                     transform:'rotate(0)',
-                    transformOrigin: '50% 110px',
+                    transformOrigin: '50% 11rem',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -246,11 +252,11 @@ class RotaryLotterView extends React.Component {
                 text: {
                     color: '#B04971',
                     whiteSpace: 'nowrap',
-                    margin: '2px'
+                    margin: '.2rem'
                 },
                 img: {
-                    height: '40px',
-                    maxWidth: '50px'
+                    height: '4rem',
+                    maxWidth: '5rem'
                 }
             },
             descBar: {
@@ -289,12 +295,14 @@ class RotaryLotterView extends React.Component {
         });
 
         return (<div style={style.container}>
-            <div id='rotaryContainer' style={style.bg.container}>
+            <div style={style.rotaryContainer}>
+                <div id='rotaryContainer' style={style.bg.container}>
                 <img style={style.bg.rotary} src={this.props.imgUrls.rotary}/>
                 {awards}
-            </div>
-            <div style={style.bg.pointer} onClick={this.startRotate.bind(this)}>
-                <img src={this.props.imgUrls.pointer} width="80px"/>
+                </div>
+                <div style={style.bg.pointer} onClick={this.startRotate.bind(this)}>
+                    <img src={this.props.imgUrls.pointer} width="100%" height="100%"/>
+                </div>
             </div>
             <div style={style.descBar.container}>
                 <img style={style.descBar.couponImg} src={this.props.imgUrls.leftCoupon}/>

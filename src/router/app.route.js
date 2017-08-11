@@ -22,7 +22,7 @@ import {browserHistory} from 'react-router';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {initConfig, getConfig, setWechatShareLink} from '../redux/actions/ac_app';
-import {togglePop, toggleShareAddNum, toggleDesc} from '../redux/actions/ac_modal';
+import {togglePop, toggleShareAddNum, toggleDesc, toggleLoading} from '../redux/actions/ac_modal';
 import {setHomeImg} from '../redux/actions/ac_home';
 import {getLotteryResult} from '../redux/actions/ac_lottery';
 
@@ -53,7 +53,7 @@ class AppRoute extends React.Component {
             switch (json.code) {
                 case 0: {
                     this.props.getLotteryResult({
-                        time: this.props.lotteryTime + this.props.shareAddNum
+                        time: json.data.balance
                     });
                     console.log(json);
                     break;
@@ -103,6 +103,9 @@ class AppRoute extends React.Component {
                         }}}
                     ).config();
                 }, 0);
+                setTimeout(() => {
+                    this.props.toggleLoading(false);
+                }, 200);
             } else if (2501 == json.code) {
                 this.props.togglePop(true,'活动已失效！');
             } else  {
@@ -128,7 +131,7 @@ class AppRoute extends React.Component {
             setTimeout(() => {
                 this.configApp();
             }, 0);
-            browserHistory.push(URL.home);
+            // browserHistory.push(URL.home);
         }
     }
     
@@ -163,6 +166,6 @@ let mapStateToProps = state => ({...state.appConfigs.initData,
 });
 
 
-let mapDispatchToProps = dispatch => bindActionCreators({initConfig, getConfig, togglePop, toggleDesc, toggleShareAddNum, getLotteryResult, setWechatShareLink, setHomeImg}, dispatch);
+let mapDispatchToProps = dispatch => bindActionCreators({initConfig, toggleLoading, getConfig, togglePop, toggleDesc, toggleShareAddNum, getLotteryResult, setWechatShareLink, setHomeImg}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppRoute);

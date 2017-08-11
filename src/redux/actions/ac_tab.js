@@ -1,5 +1,5 @@
 import {AT_TAB} from '../constants/action_types';
-import {url} from '../../router/routes';
+import {img} from '../../assets/index';
 
 export function changeActiveTab (activeTab) {
     return {
@@ -10,7 +10,7 @@ export function changeActiveTab (activeTab) {
 
 export function getAwardsListData (data) {
     let noUse = [], used = [], expire = [];
-    data.map((v, k) => {
+    data.map(v => {
         let item = {};
         switch (v.consumptionType) {
             case 'LIMIT': {
@@ -61,8 +61,7 @@ export function getAwardsListData (data) {
         item.expireDesc = '有效期至';
         item.expire = v.expirationDate;
         item.usingType = 1;
-        // item.iconUrl = url.home + '../../assets/icon-coupon-list-right-mid.png';
-        item.iconUrl = url.home + 'assets/icon-coupon-list-right-mid.png';
+        item.iconUrl = img.awardList.icon.rightMid;
 
         switch (v.status) {
             case 1: {

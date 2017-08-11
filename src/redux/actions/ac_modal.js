@@ -65,3 +65,10 @@ export function togglePop (isOpen, text) {
         payload: {isOpen, text}
     }
 }
+
+export function toggleLoading (isOpen) {
+    return {
+        type: AT_MODAL.LOADING.TOGGLE,
+        payload: {isOpen}
+    }
+}

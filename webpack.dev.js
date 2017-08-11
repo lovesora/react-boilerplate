@@ -135,7 +135,7 @@ let config = {
                 }, 'sass-loader?sourceMap']
             })
         }, {
-            test: /\.(gif|jpg|png|woff|woff2|svg|eot|ttf)\??.*$/,
+            test: /\.(gif|jpg|jpeg|png|woff|woff2|svg|eot|ttf)\??.*$/,
             use: [{
                 loader: "url-loader",
                 options: {

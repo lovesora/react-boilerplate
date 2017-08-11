@@ -42,6 +42,10 @@ export default (state = {}, action) => {
             s.pop = action.payload;
             return s;
         }
+        case AT_MODAL.LOADING.TOGGLE: {
+            s.loading = {...s.loading, ...action.payload};
+            return s;
+        }
         default: {
             return state;
         }
