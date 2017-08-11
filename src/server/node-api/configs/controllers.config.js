@@ -5,25 +5,25 @@ let ctlPath = path.resolve(__dirname, '../controllers');
 console.log("controller path: " + ctlPath);
 
 function addMapping(router, mapping) {
-    for (let url in mapping) {
+    for (var url in mapping) {
         if (url.startsWith('GET ')) {
             // 如果url类似"GET xxx":
-            let path = url.substring(4);
+            var path = url.substring(4);
             router.get(path, mapping[url]);
             console.log(`register URL mapping: GET ${path}`);
         } else if (url.startsWith('POST ')) {
             // 如果url类似"POST xxx":
-            let path = url.substring(5);
+            var path = url.substring(5);
             router.post(path, mapping[url]);
             console.log(`register URL mapping: POST ${path}`);
         } else if (url.startsWith('PUT ')) {
             // 如果url类似"PUT xxx":
-            let path = url.substring(4);
+            var path = url.substring(4);
             router.put(path, mapping[url]);
             console.log(`register URL mapping: PUT ${path}`);
         } else if (url.startsWith('DELETE ')) {
             // 如果url类似"PUT xxx":
-            let path = url.substring(7);
+            var path = url.substring(7);
             router.delete(path, mapping[url]);
             console.log(`register URL mapping: DELETE ${path}`);
         } else {
@@ -35,11 +35,13 @@ function addMapping(router, mapping) {
 
 function addControllers(router) {
     // 这里可以用sync是因为启动时只运行一次，不存在性能问题:
-    let files = fs.readdirSync(ctlPath);
+    var files = fs.readdirSync(ctlPath);
     // 过滤出.js文件:
-    let jsFiles = files.filter((f) => f.endsWith('.js'));
+    var js_files = files.filter((f) => {
+        return f.endsWith('.js');
+    });
 
-    for (let f of jsFiles) {
+    for (var f of js_files) {
         console.log(`process controller: ${f}...`);
         let mapping = require(path.resolve(ctlPath, f));
         addMapping(router, mapping);

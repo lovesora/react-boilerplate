@@ -23,6 +23,7 @@ let config = {
     context: paths.context,
     entry: {
         //babel-polyfill是为了支持async/await语法
+        // whatwg-fetch 使用fetch操作
         app: ['whatwg-fetch', 'babel-polyfill', './index.js'],
         react: ['react', 'react-dom', 'react-addons-css-transition-group', 'react-redux', 'react-router', 'redux', 'react-tap-event-plugin']
     },

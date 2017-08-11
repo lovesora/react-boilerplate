@@ -1,9 +1,10 @@
-import {createStore} from 'redux';
-import Reducers from '../reducer/index.js';
-import initialState from './initial-state.js';
+import { createStore } from 'redux';
+import Reducers from '../reducers/index.js';
+import initialState from './initial_state.js';
 
-// dev
-export default () => createStore(Reducers, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-// prod
+// 生产环境
 // export default () => createStore(Reducers, initialState);
+
+// 开发环境
+export default () => createStore(Reducers, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

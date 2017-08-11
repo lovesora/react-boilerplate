@@ -22,7 +22,7 @@ const paths = {
 
 const indexHtmlConfig = {
     // 自动生成的html的标题
-    title: 'react-boilerplate',
+    title: '',
 }
 
 let config = {
@@ -33,6 +33,7 @@ let config = {
     context: paths.context,
     entry: {
         // babel-polyfill是为了支持async/await语法
+        // whatwg-fetch 使用fetch操作
         app: ['whatwg-fetch', 'babel-polyfill', './index.js'],
         react: ['react', 'react-dom', 'react-addons-css-transition-group', 'react-redux', 'react-router', 'redux', 'react-tap-event-plugin']
     },
@@ -64,6 +65,15 @@ let config = {
             excludeChunks: ['react']
         })
     ],
+    resolve: {
+        //当在css中@import css出错“can’t find ___”可以开启以下resolve
+        // modules: [paths.context, "node_modules"],
+
+        //为资源文件取别名，缩短引用的路径
+        alias: {
+            // react: path.resolve(paths.src, "vendor/react/react.min.js"),
+        }
+    },
     module: {
         rules: [{
             // 模块必须在你的 bundle 中被 require() 过，否则他们将不会被暴露！！！

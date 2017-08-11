@@ -12,4 +12,4 @@ ReactDOM.render((
     <Provider store={createStore()}>
         <Router history={browserHistory} routes={routes} />
     </Provider>
-), document.getElementById('app'));
+), document.querySelector('#app'));

@@ -1,40 +1,45 @@
-//react-router
-import {Link} from 'react-router';
-import {URL} from './routes';
-
-
 //redux
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 
+//components
+import RotaryLottery from '../components/rotary-lottery/rotary-lottery';
+import BottomIcons from '../components/icon/bottom-icons';
+import ModalAward from '../components/modal/modal-award';
+import ModalDesc from '../components/modal/modal-desc';
+import ModalCode from  '../components/modal/modal-code';
+import ModalShareEnd from '../components/modal/modal-share-end';
+import ModalShareAddNum from '../components/modal/modal-share-add-num';
+import ModalPop from '../components/modal/modal-pop';
+
+
 class HomeRoute extends React.Component {
-    constructor(...args) {
-        super(...args);
-    }
-
-    componentDidMount() {
-        this.props.router.setRouteLeaveHook(
-            this.props.route,
-            this.routerWillLeave.bind(this)
-        );
-    }
-
-    routerWillLeave(nextLocation) {
-        console.log('你已经离开Home Route!');
-    }
-
-    render() {
-        return <div>
-            <h1>{this.props.title}</h1>
-            <Link to={URL.POST + Math.ceil(Math.random() * 1e16)}>
-                Redirect to post page
-            </Link>
+    render () {
+        let style = {
+            container: {
+                background: `url('${this.props.bg}') center center / 100% 100% no-repeat`,
+                minHeight: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+            }
+        }
+        return <div style={ style.container }>
+            <RotaryLottery/>
+            <BottomIcons/>
+            <ModalAward/>
+            <ModalDesc/>
+            <ModalCode/>
+            <ModalShareEnd/>
+            <ModalShareAddNum/>
+            <ModalPop/>
         </div>;
     }
 }
 
-let mapStateToProps = state => ({...state.home});
+let mapStateToProps = state => ({...state.home.imgUrls});
+
 
 let mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);
 
