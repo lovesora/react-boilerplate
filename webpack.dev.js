@@ -149,11 +149,17 @@ let config = {
         // 局域网访问
         disableHostCheck: true,
         host: "0.0.0.0",
+        port: "8080",
         // 静态资源目录
         contentBase: paths.server.contentBase,
         // 启用gzip压缩
         compress: true,
-        proxy: {}
+        proxy: {
+            '/api': {
+                target: 'http://sandbox.food.petkit.com:80',
+                changeOrigin: true
+            }
+        }
     }
 }
 

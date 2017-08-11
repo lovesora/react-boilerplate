@@ -25,15 +25,15 @@ class HomeRoute extends React.Component {
                 justifyContent: 'center'
             }
         }
+        // <BottomIcons/>
+        // <ModalAward/>
+        // <ModalDesc/>
+        // <ModalCode/>
+        // <ModalShareEnd/>
+        // <ModalShareAddNum/>
+        // <ModalPop/>
         return <div style={ style.container }>
             <RotaryLottery/>
-            <BottomIcons/>
-            <ModalAward/>
-            <ModalDesc/>
-            <ModalCode/>
-            <ModalShareEnd/>
-            <ModalShareAddNum/>
-            <ModalPop/>
         </div>;
     }
 }

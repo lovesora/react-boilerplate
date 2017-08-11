@@ -59,6 +59,7 @@
     "url-loader": "^0.5.8",
     "webpack": "^3.4.1",
     "webpack-dev-server": "^2.6.1",
-    "whatwg-fetch": "^2.0.3"
+    "whatwg-fetch": "^2.0.3",
+    "weixin-js-sdk": "^1.2.0"
   }
 }
