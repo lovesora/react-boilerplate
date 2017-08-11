@@ -122,11 +122,11 @@ let config = {
                 }, 'sass-loader']
             })
         }, {
-            test: /\.(gif|jpg|png|woff|woff2|svg|eot|ttf)\??.*$/,
+            test: /\.(gif|jpg|jpeg|png|woff|woff2|svg|eot|ttf)\??.*$/,
             use: [{
                 loader: "url-loader",
                 options: {
-                    limit: 20 * 1024,
+                    limit: 2 * 1024,
                     name: "[path][name].[ext]"
                 }
             }]

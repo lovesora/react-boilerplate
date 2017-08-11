@@ -139,7 +139,7 @@ let config = {
             use: [{
                 loader: "url-loader",
                 options: {
-                    limit: 20 * 1024,
+                    limit: 2 * 1024,
                     name: "[path][name].[ext]"
                 }
             }]
