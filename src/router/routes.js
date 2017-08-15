@@ -2,8 +2,12 @@ import AppRoute from './app.route';
 import HomeRoute from './home.route';
 import PostRoute from './post.route';
 
+
+// config
+import envConfig from '../config/env.config';
+
 // 相对路径
-let RELATIVEPATH = '/x/y/';
+let RELATIVEPATH = envConfig.router.relativePath;
 
 
 // 路由地址

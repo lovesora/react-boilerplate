@@ -21,6 +21,9 @@ const controller = require('./configs/controllers.config.js');
 app.use(controller());
 
 
-app.listen(3000);
+const mock = require('./middleware/mock/index');
+app.use(mock());
 
+
+app.listen(3000);
 console.log('app started at port 3000');

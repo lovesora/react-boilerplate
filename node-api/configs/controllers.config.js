@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-let ctlPath = path.resolve(__dirname, '../controllers');
-console.log("controller path: " + ctlPath);
+let dir = path.resolve(__dirname, '../controllers');
+console.log("controller path: " + dir);
 
 function addMapping(router, mapping) {
     for (let url in mapping) {
@@ -22,7 +22,7 @@ function addMapping(router, mapping) {
             router.put(path, mapping[url]);
             console.log(`register URL mapping: PUT ${path}`);
         } else if (url.startsWith('DELETE ')) {
-            // 如果url类似"PUT xxx":
+            // 如果url类似"DELETE xxx":
             let path = url.substring(7);
             router.delete(path, mapping[url]);
             console.log(`register URL mapping: DELETE ${path}`);
@@ -33,12 +33,25 @@ function addMapping(router, mapping) {
     }
 }
 
-function addControllers(router) {
+function addControllers(router, ctlPath) {
     // 这里可以用sync是因为启动时只运行一次，不存在性能问题:
     let files = fs.readdirSync(ctlPath);
+
+    files.forEach(function (file) {
+        if (file != '.' && file != '..') {
+            let filePath = ctlPath + '/' + file;
+            fs.stat(filePath, function (err, stats) {
+                if (err) throw err;
+    
+                if (stats.isDirectory()) {
+                    addControllers(router, filePath);
+                }
+            });
+        }
+    });
+
     // 过滤出.js文件:
     let jsFiles = files.filter((f) => f.endsWith('.js'));
-
     for (let f of jsFiles) {
         console.log(`process controller: ${f}...`);
         let mapping = require(path.resolve(ctlPath, f));
@@ -47,9 +60,9 @@ function addControllers(router) {
     console.log(`process controller ending...`);
 }
 
-module.exports = function (dir) {
+module.exports = function () {
     // 注意require('koa-router')返回的是函数:
     let router = require('koa-router')();
-    addControllers(router);
+    addControllers(router, dir);
     return router.routes();
 };

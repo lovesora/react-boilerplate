@@ -64,6 +64,15 @@ let config = {
             excludeChunks: ['react']
         })
     ],
+    resolve: {
+        //当在css中@import css出错“can’t find ___”可以开启以下resolve
+        // modules: [paths.context, "node_modules"],
+
+        //为资源文件取别名，缩短引用的路径
+        alias: {
+            // react: path.resolve(paths.src, "vendor/react/react.min.js"),
+        }
+    },
     module: {
         rules: [{
             // 模块必须在你的 bundle 中被 require() 过，否则他们将不会被暴露！！！
@@ -125,11 +134,11 @@ let config = {
                 }, 'sass-loader?sourceMap']
             })
         }, {
-            test: /\.(gif|jpg|png|woff|woff2|svg|eot|ttf)\??.*$/,
+            test: /\.(gif|jpg|jpeg|png|woff|woff2|svg|eot|ttf)\??.*$/,
             use: [{
                 loader: "url-loader",
                 options: {
-                    limit: 20 * 1024,
+                    limit: 2 * 1024,
                     name: "[path][name].[ext]"
                 }
             }]
@@ -139,11 +148,17 @@ let config = {
         // 局域网访问
         disableHostCheck: true,
         host: "0.0.0.0",
+        port: "8880",
         // 静态资源目录
         contentBase: paths.server.contentBase,
         // 启用gzip压缩
         compress: true,
-        proxy: {}
+        proxy: {
+            '/api': {
+                target: 'http://sandbox.food.petkit.com:80',
+                changeOrigin: true
+            }
+        }
     }
 }
 

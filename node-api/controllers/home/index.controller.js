@@ -29,6 +29,7 @@ let login = async (ctx, next) => {
         };
     }
 }
+
 module.exports = {
     'POST /user': signup,
     'GET /user': login
