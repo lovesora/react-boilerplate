@@ -2,8 +2,14 @@ import {createStore} from 'redux';
 import Reducers from '../reducer/index.js';
 import initialState from './initial-state.js';
 
-// dev
-export default () => createStore(Reducers, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+import conf from '../../config/redux.config';
 
-// prod
-// export default () => createStore(Reducers, initialState);
+export default () => createStore(
+    Reducers,
+    initialState,
+    conf.dev
+        // dev
+        ? window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+        // prod
+        : null
+);

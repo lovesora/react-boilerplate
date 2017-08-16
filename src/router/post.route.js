@@ -1,9 +1,9 @@
-import PostComponent from '../components/post/post';
+import PostController from '../app/post/post.controller';
 
 export default class PostRoute extends React.Component {
     render () {
         return <div>
-            <PostComponent id={this.props.params.id} />
+            <PostController id={this.props.params.id} />
         </div>;
     }
 }

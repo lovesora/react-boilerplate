@@ -1,6 +1,6 @@
 //react router
 import {Router, browserHistory} from 'react-router';
-import {routes} from './router/routes.js';
+import routes from './router/routes.js';
 
 
 //redux

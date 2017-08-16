@@ -155,7 +155,7 @@ let config = {
         compress: true,
         proxy: {
             '/api': {
-                target: 'http://sandbox.food.petkit.com:80',
+                target: 'http://localhost:8800',
                 changeOrigin: true
             }
         }

@@ -1,5 +1,6 @@
 //global style
 import '../styles/style.scss';
+import '../config/color.config';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 // Needed for onTouchTap
