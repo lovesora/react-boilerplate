@@ -11,14 +11,14 @@ let PostView = props => {
             width: '50%',
             float: 'left'
         }
-    }
+    };
 
     return <div>
         <p>{props.id}</p>
         <img style={style.img} src={imgs.png.js} alt="js"/>
         <img style={style.img} src={imgs.png.css} alt="css"/>
     </div>;
-}
+};
 
 let mapStateToProps = state => ({...state.post});
 

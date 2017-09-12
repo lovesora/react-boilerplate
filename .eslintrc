@@ -19,7 +19,7 @@
     }
   },
   "rules": {
-    //import
+    // import
     // 检查引用的路径是否有误
     // 通过 {"commonjs": true, "amd": true} 来支持 commonjs 和 amd 方式的 require
     "import/no-unresolved": [2, {
@@ -29,7 +29,21 @@
     "import/namespace": 2,
     "import/default": 2,
     "import/export": 2,
-    //react
+    // 不可省略分号
+    "semi": [2, "always"],
+    // 控制逗号在行尾出现还是在行首出现 (逗号放在行尾) 
+    "comma-style": [1, "last"],
+    // 单引号 '优于双引号"
+    "quotes": [2, "single"],
+    // 对象属性声明的冒号:后，加空格
+    "key-spacing": [2],
+    // 控制逗号前后的空格
+    "comma-spacing": [2, {"before": false, "after": true}],
+    // 条件语句if、else、switch...后，加空格
+    "keyword-spacing": [2, {"before": true, "after": true}],
+    // 开始大括号前，加空格
+    "space-before-blocks": [2, "always"],
+    // react
     "strict": 0,
     "react/no-did-mount-set-state": "error",
     "react/no-did-update-set-state": "error",
@@ -51,11 +65,8 @@
     "no-obj-calls": 2,
     "valid-typeof": 2,
     "no-unused-vars": 1,
-    "quotes": 0,
     "object-curly-spacing": 1,
     "block-spacing": 1,
-    "semi": 0,
-    "keyword-spacing": 1,
     "comma-dangle": 0,
     "array-bracket-spacing": 1,
     "space-before-function-paren": 1,

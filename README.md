@@ -90,6 +90,7 @@ The boilerplate of react tech with using react, react-router, redux, webpack, ma
   |-.gitignore                  // git忽略配置文件
   |-LICENSE                     // 开源协议
   |-package.json                // node依赖配置文件
+  |-postcss.config.js           // postcss配置文件
   |-README.md                   // 说明文件
   |-webpack.config.js           // webpack配置文件
   |-webpack.dev.js              // webpack开发配置
@@ -98,7 +99,7 @@ The boilerplate of react tech with using react, react-router, redux, webpack, ma
 ```
 
 # 版本更新
-## v2.1
+## v2.2
 ### 设计思想
 * 数据独立
   * 显示->View
@@ -142,15 +143,21 @@ The boilerplate of react tech with using react, react-router, redux, webpack, ma
 * 状态管理
 
 * webpack2包管理
-  * react、es6编译
-  * sass编译
-  * js文件合并、压缩、丑化
-  * css文件提取
-  * 图片、字体加载
-  * 生成html、去除缓存
-  * 本地热刷新
-  * 局域网访问
-  * 请求转发
+  * dev
+    * react、es6编译
+    * fetch、async/await
+    * sass编译
+    * js文件合并、压缩、丑化
+    * css文件提取
+    * 添加css前缀
+    * 图片、字体加载
+    * 生成html、去除缓存
+    * 本地热刷新
+    * HMR
+    * 局域网访问
+    * 反向代理
+  * prod
+    * 清理缓存
 
 ### 开发流程
 * interface

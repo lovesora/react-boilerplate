@@ -8,10 +8,10 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 //react-router animation
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 
-export default class App extends React.Component {
+class App extends React.Component {
     render () {
         return <div>
             <ReactCSSTransitionGroup
@@ -28,3 +28,5 @@ export default class App extends React.Component {
         </div>;
     }
 }
+
+export default App;

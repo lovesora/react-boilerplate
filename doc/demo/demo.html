@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <title>Demo</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="app" ng-controller="ctrl">
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input ng-change="updateData()" ng-model="mail" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputText">Username</label>
+                <input ng-change="updateData()" ng-model="username" type="text" class="form-control" id="exampleInputText" placeholder="Password">
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input ng-change="updateData()" ng-model="checkbox" type="checkbox"> Check me out
+                </label>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <div style="display: none" id="data">475212506@qq.com|liuxin|true</div>
+    </div>
+
+    <script>
+        let app = angular.module('app', []);
+        app.controller('ctrl', function($scope) {
+            let d = data.innerHTML.split('|');
+            $scope.mail = d[0];
+            $scope.username = d[1];
+            $scope.checkbox = Boolean(d[2]);
+
+            $scope.updateData = function () {
+                let _data = [];
+                _data[0] = $scope.mail,
+                _data[1] = $scope.username,
+                _data[2] = $scope.checkbox;
+                
+                data.innerHTML = _data.join('|');
+            }
+        });
+    </script>
+</body>
+
+</html>

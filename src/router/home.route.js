@@ -4,6 +4,7 @@ import HomeView from '../app/home/home.view';
 class HomeRoute extends React.Component {
     constructor (...args) {
         super(...args);
+        this.lx = 'liu';
     }
 
     componentDidMount () {
@@ -18,7 +19,9 @@ class HomeRoute extends React.Component {
     }
     
     render () {
-        return <HomeView/>
+        return <div>
+            <HomeView/>
+        </div>;
     }
 }
 
